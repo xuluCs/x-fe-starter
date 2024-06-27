@@ -1,3 +1,4 @@
+import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -19,7 +20,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final store = sl<TodoStore>();
-  final myToken = LocalPreferenceService.getAccessToken();
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         title: Text(
-          myToken,
+          "My Todo",
           style: h4Bold(),
         ),
         centerTitle: true,
@@ -43,7 +43,10 @@ class _HomeViewState extends State<HomeView> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              LocalPreferenceService.removeCredential();
+              context.go(RoutePath.init);
+            },
             icon: const Icon(
               CupertinoIcons.bell_fill,
             ),

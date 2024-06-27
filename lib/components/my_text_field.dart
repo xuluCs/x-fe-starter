@@ -13,16 +13,19 @@ class MyTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(),
-          ),
-          filled: true,
-          fillColor: Colors.grey.withOpacity(0.2),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 12)),
+        hintText: hintText,
+        labelText: labelText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(),
+        ),
+        filled: true,
+        fillColor: Colors.grey.withOpacity(0.2),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 12,
+        ),
+      ),
     );
   }
 }

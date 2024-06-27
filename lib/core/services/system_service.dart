@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fe_starter_project_templete/core/extensions/logger.dart';
 
-class NavigationObserver extends NavigatorObserver {
+class MyNavigationObserver extends NavigatorObserver {
   final void Function(Route route) onNavigate;
 
-  NavigationObserver({required this.onNavigate});
+  MyNavigationObserver({required this.onNavigate});
 
   @override
   void didPush(Route route, Route? previousRoute) {

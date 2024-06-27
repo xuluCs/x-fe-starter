@@ -62,9 +62,9 @@ class SignUpView extends StatelessWidget {
                     child: MaterialButton(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       onPressed: () => store.registerUser(
-                          _fullNameController.text,
-                          _emailController.text,
-                          _passController.text,
+                          _fullNameController.text.trim(),
+                          _emailController.text.trim(),
+                          _passController.text.trim(),
                           context),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
