@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mytodo_mobx_app/components/my_text_field.dart';
-import 'package:mytodo_mobx_app/core/style/style_color.dart';
-import 'package:mytodo_mobx_app/core/style/style_text.dart';
-import 'package:mytodo_mobx_app/features/auth/stores/auth_store.dart';
+import 'package:fe_starter_project_templete/components/my_text_field.dart';
+import 'package:fe_starter_project_templete/core/styles/style_color.dart';
+import 'package:fe_starter_project_templete/core/styles/style_text.dart';
+import 'package:fe_starter_project_templete/core/utils/route_path.dart';
+import 'package:fe_starter_project_templete/features/auth/stores/auth_store.dart';
 import 'package:provider/provider.dart';
 
 class SignUpView extends StatelessWidget {
@@ -86,7 +87,7 @@ class SignUpView extends StatelessWidget {
                   ),
                   const Gap(12),
                   InkWell(
-                    onTap: () => context.pop(),
+                    onTap: () => context.go(RoutePath.init),
                     child: Text(
                       "Sign Up",
                       style: b3Medium(colorText: CustomColor.primary800),

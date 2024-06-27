@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mytodo_mobx_app/core/services/local_preference_service.dart';
-import 'package:mytodo_mobx_app/core/style/style_color.dart';
-import 'package:mytodo_mobx_app/core/style/style_text.dart';
-import 'package:mytodo_mobx_app/features/todo/stores/todo_store.dart';
-import 'package:mytodo_mobx_app/features/todo/views/widget/todo_item.dart';
-import 'package:mytodo_mobx_app/injection.dart';
+import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
+import 'package:fe_starter_project_templete/core/styles/style_color.dart';
+import 'package:fe_starter_project_templete/core/styles/style_text.dart';
+import 'package:fe_starter_project_templete/features/todo/stores/todo_store.dart';
+import 'package:fe_starter_project_templete/features/todo/views/widget/todo_item.dart';
+import 'package:fe_starter_project_templete/injection.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

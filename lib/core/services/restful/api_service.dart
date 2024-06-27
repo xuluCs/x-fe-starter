@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:mytodo_mobx_app/core/utils/base_url_util.dart';
+import 'package:fe_starter_project_templete/core/utils/base_url_util.dart';
 
 class ApiService {
   final Dio _dio;

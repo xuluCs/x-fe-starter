@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
-import 'package:mytodo_mobx_app/features/todo/models/todo.dart';
-import 'package:mytodo_mobx_app/features/todo/repositories/todo_repository.dart';
-import 'package:mytodo_mobx_app/injection.dart';
+import 'package:fe_starter_project_templete/features/todo/models/todo.dart';
+import 'package:fe_starter_project_templete/features/todo/repositories/todo_repository.dart';
+import 'package:fe_starter_project_templete/injection.dart';
 
 part 'todo_store.g.dart';
 

@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:mytodo_mobx_app/core/utils/my_data_type.dart';
+import 'package:fe_starter_project_templete/core/utils/my_data_type.dart';
 
 extension ParseEnumToString on Enum {
   String parseToString() => toString().split('.').last;

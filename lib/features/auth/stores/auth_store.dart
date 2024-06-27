@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mytodo_mobx_app/features/auth/models/login/login.dart';
-import 'package:mytodo_mobx_app/features/auth/repositories/auth_repository.dart';
-import 'package:mytodo_mobx_app/injection.dart';
+import 'package:fe_starter_project_templete/core/utils/route_path.dart';
+import 'package:fe_starter_project_templete/features/auth/models/login/login.dart';
+import 'package:fe_starter_project_templete/features/auth/repositories/auth_repository.dart';
+import 'package:fe_starter_project_templete/injection.dart';
 
 part 'auth_store.g.dart';
 
@@ -27,10 +28,9 @@ abstract class _AuthStore with Store {
     errorMessage = '';
     try {
       final data = await _repository.loginUser(email, password);
-      debugPrint("gggg");
       login = data;
       // ignore: use_build_context_synchronously
-      context.go('/home');
+      context.go(RoutePath.home);
     } catch (e) {
       errorMessage = e.toString();
       debugPrint("gggg222 $e");

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mytodo_mobx_app/core/style/style_color.dart';
+import 'package:fe_starter_project_templete/core/styles/style_color.dart';
 
 //h1
 TextStyle h1Reguler({Color colorText = CustomColor.netral800}) => TextStyle(

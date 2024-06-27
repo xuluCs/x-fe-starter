@@ -1,5 +1,5 @@
 
-import 'package:mytodo_mobx_app/features/todo/models/todo.dart';
+import 'package:fe_starter_project_templete/features/todo/models/todo.dart';
 
 abstract class TodoRepository {
   Future<List<Todo>> fetchTodos();

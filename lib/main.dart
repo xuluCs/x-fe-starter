@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mytodo_mobx_app/core/services/local_preference_service.dart';
-import 'package:mytodo_mobx_app/features/auth/stores/auth_store.dart';
-import 'package:mytodo_mobx_app/features/todo/stores/todo_store.dart';
-import 'package:mytodo_mobx_app/injection.dart';
-import 'package:mytodo_mobx_app/routes/app_routes.dart';
+import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
+import 'package:fe_starter_project_templete/features/auth/stores/auth_store.dart';
+import 'package:fe_starter_project_templete/features/todo/stores/todo_store.dart';
+import 'package:fe_starter_project_templete/injection.dart';
+import 'package:fe_starter_project_templete/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

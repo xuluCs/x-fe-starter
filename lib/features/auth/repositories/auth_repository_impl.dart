@@ -1,8 +1,8 @@
-import 'package:mytodo_mobx_app/core/services/local_preference_service.dart';
-import 'package:mytodo_mobx_app/core/services/restful/api_service.dart';
-import 'package:mytodo_mobx_app/features/auth/models/login/login.dart';
-import 'package:mytodo_mobx_app/features/auth/repositories/auth_repository.dart';
-import 'package:mytodo_mobx_app/injection.dart';
+import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
+import 'package:fe_starter_project_templete/core/services/restful/api_service.dart';
+import 'package:fe_starter_project_templete/features/auth/models/login/login.dart';
+import 'package:fe_starter_project_templete/features/auth/repositories/auth_repository.dart';
+import 'package:fe_starter_project_templete/injection.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final _service = sl<ApiService>();
