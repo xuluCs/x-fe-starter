@@ -1,3 +1,4 @@
+import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
 import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,11 +6,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
-import 'package:fe_starter_project_templete/core/styles/style_color.dart';
-import 'package:fe_starter_project_templete/core/styles/style_text.dart';
-import 'package:fe_starter_project_templete/features/todo/stores/todo_store.dart';
-import 'package:fe_starter_project_templete/features/todo/views/widget/todo_item.dart';
-import 'package:fe_starter_project_templete/injection.dart';
+import 'package:fe_starter_project_templete/features/home/stores/todo_store.dart';
+import 'package:fe_starter_project_templete/features/home/views/widget/todo_item.dart';
+import 'package:fe_starter_project_templete/core/config/injection.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -34,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text(
           "My Todo",
-          style: h4Bold(),
+          style: MyScreen().textStyleTitle(context),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -72,7 +71,6 @@ class _HomeViewState extends State<HomeView> {
                       },
                       child: Text(
                         "try again",
-                        style: b2Medium(colorText: CustomColor.primary800),
                       ))
                 ],
               ),
@@ -86,15 +84,11 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: RichText(
-                    text: TextSpan(
-                        text: "Remaining task ",
-                        style: b1Medium(),
-                        children: [
-                          TextSpan(
-                            text: '(${store.todos.length})',
-                            style: b1Bold(),
-                          ),
-                        ]),
+                    text: TextSpan(text: "Remaining task ", children: [
+                      TextSpan(
+                        text: '(${store.todos.length})',
+                      ),
+                    ]),
                   ),
                 ),
                 const SizedBox(

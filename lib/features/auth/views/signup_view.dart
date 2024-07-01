@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fe_starter_project_templete/components/my_text_field.dart';
+import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/styles/style_color.dart';
 import 'package:fe_starter_project_templete/core/styles/style_text.dart';
 import 'package:fe_starter_project_templete/core/utils/route_path.dart';
@@ -37,19 +37,19 @@ class SignUpView extends StatelessWidget {
               ),
               const Gap(6),
               const Gap(40),
-              MyTextField(
+              TextFieldWidget(
                 controller: _fullNameController,
                 labelText: "Fullname",
                 hintText: "Enter your fullname",
               ),
               const Gap(20),
-              MyTextField(
+              TextFieldWidget(
                 controller: _emailController,
                 labelText: "Email",
                 hintText: "Enter your email",
               ),
               const Gap(20),
-              MyTextField(
+              TextFieldWidget(
                 controller: _passController,
                 hintText: "Enter your Password",
                 labelText: "Password",

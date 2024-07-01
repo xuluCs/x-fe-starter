@@ -65,6 +65,16 @@ mixin _$AuthStore on _AuthStore, Store {
         .run(() => super.loginUser(email, password, context));
   }
 
+  late final _$registerUserAsyncAction =
+      AsyncAction('_AuthStore.registerUser', context: context);
+
+  @override
+  Future<void> registerUser(
+      String name, dynamic email, dynamic password, BuildContext context) {
+    return _$registerUserAsyncAction
+        .run(() => super.registerUser(name, email, password, context));
+  }
+
   @override
   String toString() {
     return '''

@@ -36,3 +36,16 @@ class AnalyticsService {
     'Navigated to $routeName'.logger();
   }
 }
+
+int colorFromString(String? hex) {
+  if (hex == null || hex.length < 6) hex = "#FFFFFF";
+
+  try {
+    hex = hex.replaceFirst('#', '');
+    hex = hex.length == 6 ? 'ff$hex' : hex;
+    return int.parse(hex, radix: 16);
+  } catch (e) {
+    "Parse string to int in colorFromString error : $e".logger();
+    return int.parse("ffFFFFFF", radix: 16);
+  }
+}

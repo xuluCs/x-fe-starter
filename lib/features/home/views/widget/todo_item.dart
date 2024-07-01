@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:fe_starter_project_templete/core/styles/style_text.dart';
-import 'package:fe_starter_project_templete/features/todo/models/todo.dart';
+import 'package:fe_starter_project_templete/features/home/models/todo.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({super.key, required this.todo});

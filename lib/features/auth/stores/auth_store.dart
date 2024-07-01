@@ -4,7 +4,7 @@ import 'package:mobx/mobx.dart';
 import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:fe_starter_project_templete/features/auth/models/login/login.dart';
 import 'package:fe_starter_project_templete/features/auth/repositories/auth_repository.dart';
-import 'package:fe_starter_project_templete/injection.dart';
+import 'package:fe_starter_project_templete/core/config/injection.dart';
 
 part 'auth_store.g.dart';
 

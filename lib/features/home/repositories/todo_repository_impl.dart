@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:fe_starter_project_templete/core/services/restful/api_service.dart';
-import 'package:fe_starter_project_templete/features/todo/models/todo.dart';
-import 'package:fe_starter_project_templete/features/todo/repositories/todo_repository.dart';
-import 'package:fe_starter_project_templete/injection.dart';
+import 'package:fe_starter_project_templete/features/home/models/todo.dart';
+import 'package:fe_starter_project_templete/features/home/repositories/todo_repository.dart';
+import 'package:fe_starter_project_templete/core/config/injection.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
   final _service = sl<ApiService>();

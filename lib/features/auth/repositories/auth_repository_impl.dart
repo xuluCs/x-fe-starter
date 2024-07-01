@@ -2,7 +2,7 @@ import 'package:fe_starter_project_templete/core/services/local_preference_servi
 import 'package:fe_starter_project_templete/core/services/restful/api_service.dart';
 import 'package:fe_starter_project_templete/features/auth/models/login/login.dart';
 import 'package:fe_starter_project_templete/features/auth/repositories/auth_repository.dart';
-import 'package:fe_starter_project_templete/injection.dart';
+import 'package:fe_starter_project_templete/core/config/injection.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final _service = sl<ApiService>();

@@ -7,7 +7,7 @@ part of 'data_login.dart';
 // **************************************************************************
 
 DataLogin _$DataLoginFromJson(Map<String, dynamic> json) => DataLogin(
-      id: json['_id'] as String,
+      id: json['id'] as String,
       fullName: json['fullName'] as String,
       email: json['email'] as String,
     );

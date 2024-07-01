@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fe_starter_project_templete/components/my_text_field.dart';
+import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_asset.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_text.dart';
 import 'package:fe_starter_project_templete/core/styles/style_color.dart';
@@ -53,13 +53,13 @@ class LoginView extends StatelessWidget {
                 ),
               ),
               Gap(40.h),
-              MyTextField(
+              TextFieldWidget(
                 controller: _emailController,
                 hintText: "Enter your email",
                 labelText: "Email",
               ),
               Gap(20.h),
-              MyTextField(
+              TextFieldWidget(
                 controller: _passwordController,
                 hintText: "Enter your password",
                 labelText: "Password",
