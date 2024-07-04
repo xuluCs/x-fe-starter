@@ -1,3 +1,4 @@
+import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -5,8 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_asset.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_text.dart';
-import 'package:fe_starter_project_templete/core/styles/style_color.dart';
-import 'package:fe_starter_project_templete/core/styles/style_text.dart';
 import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:fe_starter_project_templete/features/auth/stores/auth_store.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +20,8 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<AuthStore>(context);
+    final color = MyScreen().colorDisplay(context);
+
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -36,19 +37,28 @@ class LoginView extends StatelessWidget {
               Gap(24.h),
               Text(
                 ConstantText.welcomeTo,
-                style: h3Reguler(),
+                style: MyScreen().textStyleHeadline(context).copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: color.primary,
+                    ),
               ),
               Text(
                 ConstantText.myTodo,
-                style: h3Bold(),
+                style: MyScreen().textStyleHeadline(context).copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: color.shadow,
+                    ),
               ),
               Gap(6.h),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.15),
+                    horizontal: MediaQuery.of(context).size.width * 0.1),
                 child: Text(
                   ConstantText.discriptionTodo,
-                  style: b3Reguler(),
+                  style: MyScreen().textStyleTitle(context).copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: color.secondary,
+                      ),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -78,11 +88,13 @@ class LoginView extends StatelessWidget {
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12)),
-                        color: Colors.blue.shade700,
+                        color: color.primary,
                         child: Text(
                           "Login",
-                          style:
-                              TextStyle(fontSize: 14.sp, color: Colors.white),
+                          style: MyScreen().textStyleTitle(context).copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: color.background,
+                              ),
                         ),
                       ),
                     ),
@@ -94,14 +106,20 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Dont't any account?",
-                    style: b3Medium(colorText: CustomColor.netral400),
+                    style: MyScreen().textStyleTitle(context).copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: color.secondary,
+                        ),
                   ),
                   const Gap(12),
                   GestureDetector(
                     onTap: () => context.go(RoutePath.signUp),
                     child: Text(
                       "Sign Up",
-                      style: b3Medium(colorText: CustomColor.primary800),
+                      style: MyScreen().textStyleTitle(context).copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: color.primary,
+                          ),
                     ),
                   ),
                 ],

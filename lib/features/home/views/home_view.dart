@@ -33,7 +33,9 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text(
           "My Todo",
-          style: MyScreen().textStyleTitle(context),
+          style: MyScreen().textStyleTitle(context).copyWith(
+                fontWeight: FontWeight.w600,
+              ),
         ),
         centerTitle: true,
         leading: IconButton(
