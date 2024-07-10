@@ -1,7 +1,7 @@
+import 'package:fe_starter_project_templete/core/extensions/logger.dart';
+import 'package:fe_starter_project_templete/core/utils/navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mobx/mobx.dart';
-import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:fe_starter_project_templete/features/auth/models/login/login.dart';
 import 'package:fe_starter_project_templete/features/auth/repositories/auth_repository.dart';
 import 'package:fe_starter_project_templete/core/config/injection.dart';
@@ -10,7 +10,7 @@ part 'auth_store.g.dart';
 
 class AuthStore = _AuthStore with _$AuthStore;
 
-abstract class _AuthStore with Store {
+abstract class _AuthStore with Store, NavigatorMixin {
   final AuthRepository _repository = sl<AuthRepository>();
 
   @observable
@@ -27,10 +27,14 @@ abstract class _AuthStore with Store {
     isLoading = true;
     errorMessage = '';
     try {
-      final data = await _repository.loginUser(email, password);
+      final data = await _repository.loginUser(email, password).then(
+        (value) {
+          pop(context);
+        },
+      );
+      "login ${data}".logger();
+
       login = data;
-      // ignore: use_build_context_synchronously
-      context.go(RoutePath.home);
     } catch (e) {
       errorMessage = e.toString();
       debugPrint("gggg222 $e");
@@ -45,8 +49,11 @@ abstract class _AuthStore with Store {
     isLoading = true;
     errorMessage = '';
     try {
-      final data = await _repository.signUpUser(name, email, password);
-      context.pop();
+      final data = await _repository.signUpUser(name, email, password).then(
+        (value) {
+          pop(context);
+        },
+      );
     } catch (e) {
       errorMessage = e.toString();
     } finally {

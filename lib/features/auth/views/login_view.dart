@@ -1,7 +1,6 @@
 import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
+import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_asset.dart';
@@ -29,12 +28,12 @@ class LoginView extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Gap(34.h),
+              MyScreen().screenGapSize(height: 34.h),
               Image.asset(
                 ConstantsAsset.imglogoApp,
                 width: MediaQuery.of(context).size.width * 0.2,
               ),
-              Gap(24.h),
+              MyScreen().screenGapSize(height: 24.h),
               Text(
                 ConstantText.welcomeTo,
                 style: MyScreen().textStyleHeadline(context).copyWith(
@@ -49,7 +48,7 @@ class LoginView extends StatelessWidget {
                       color: color.shadow,
                     ),
               ),
-              Gap(6.h),
+              MyScreen().screenGapSize(height: 6.h),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.1),
@@ -62,19 +61,19 @@ class LoginView extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              Gap(40.h),
+              MyScreen().screenGapSize(height: 40.h),
               TextFieldWidget(
                 controller: _emailController,
                 hintText: "Enter your email",
                 labelText: "Email",
               ),
-              Gap(20.h),
+              MyScreen().screenGapSize(height: 20.h),
               TextFieldWidget(
                 controller: _passwordController,
                 hintText: "Enter your password",
                 labelText: "Password",
               ),
-              Gap(30.h),
+              MyScreen().screenGapSize(height: 30.h),
               Row(
                 children: [
                   if (store.isLoading) const CircularProgressIndicator(),
@@ -100,7 +99,7 @@ class LoginView extends StatelessWidget {
                     ),
                 ],
               ),
-              Gap(20.h),
+              MyScreen().screenGapSize(height: 20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -111,9 +110,9 @@ class LoginView extends StatelessWidget {
                           color: color.secondary,
                         ),
                   ),
-                  const Gap(12),
-                  GestureDetector(
-                    onTap: () => context.go(RoutePath.signUp),
+                  MyScreen().screenGapSize(width: 12.h),
+                  InkWell(
+                    onTap: () => context.go('/sign_up'),
                     child: Text(
                       "Sign Up",
                       style: MyScreen().textStyleTitle(context).copyWith(

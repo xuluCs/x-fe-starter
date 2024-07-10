@@ -1,9 +1,9 @@
 import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
+import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
 import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
 import 'package:fe_starter_project_templete/features/home/stores/todo_store.dart';
@@ -46,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
           IconButton(
             onPressed: () {
               LocalPreferenceService.removeCredential();
-              context.go(RoutePath.init);
+              context.go('/');
             },
             icon: const Icon(
               CupertinoIcons.bell_fill,
@@ -73,6 +73,7 @@ class _HomeViewState extends State<HomeView> {
                       },
                       child: Text(
                         "try again",
+                        style: MyScreen().textStyleLabel(context),
                       ))
                 ],
               ),
@@ -82,15 +83,21 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Gap(20),
+                MyScreen().screenGapSize(height: 16.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: RichText(
-                    text: TextSpan(text: "Remaining task ", children: [
-                      TextSpan(
-                        text: '(${store.todos.length})',
-                      ),
-                    ]),
+                    text: TextSpan(
+                      text: "Remaining task ",
+                      children: [
+                        TextSpan(
+                          text: '(${store.todos.length})',
+                        ),
+                      ],
+                      style: MyScreen()
+                          .textStyleTitle(context)
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 const SizedBox(

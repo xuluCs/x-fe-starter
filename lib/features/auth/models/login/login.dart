@@ -1,15 +1,15 @@
-
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fe_starter_project_templete/features/auth/models/login/data_login.dart';
 
 part 'login.g.dart';
 
 @JsonSerializable()
 class Login {
-  String? token;
-  DataLogin? data;
+  int? userId;
+  String? fullName;
+  String? jwtToken;
+  String? jwtExpiryDateTime;
 
-  Login({this.token, this.data});
+  Login({this.userId, this.fullName, this.jwtToken, this.jwtExpiryDateTime,});
 
   factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
   Map<String, dynamic> toJson() => _$LoginToJson(this);

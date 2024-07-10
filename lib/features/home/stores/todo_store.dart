@@ -1,3 +1,4 @@
+import 'package:fe_starter_project_templete/core/utils/navigator.dart';
 import 'package:mobx/mobx.dart';
 import 'package:fe_starter_project_templete/features/home/models/todo.dart';
 import 'package:fe_starter_project_templete/features/home/repositories/todo_repository.dart';
@@ -7,7 +8,7 @@ part 'todo_store.g.dart';
 
 class TodoStore = _TodoStore with _$TodoStore;
 
-abstract class _TodoStore with Store {
+abstract class _TodoStore with Store, NavigatorMixin {
   final TodoRepository _repository = sl<TodoRepository>();
 
   @observable

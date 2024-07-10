@@ -1,6 +1,5 @@
+import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:fe_starter_project_templete/core/styles/style_text.dart';
 import 'package:fe_starter_project_templete/features/home/models/todo.dart';
 
 class TodoItem extends StatelessWidget {
@@ -33,22 +32,22 @@ class TodoItem extends StatelessWidget {
                   color: Colors.blue.shade600,
                   size: 27,
                 ),
-                const Gap(12),
+                MyScreen().screenGapSize(width: 12),
                 Flexible(
                   child: Text(
-                    todo.title,
+                    todo.title ?? "",
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
-                    style: b2Medium(),
+                    style: MyScreen().textStyleTitle(context),
                   ),
                 ),
               ],
             ),
           ),
-          const Gap(12),
+          MyScreen().screenGapSize(width: 12),
           Text(
-            todo.createdAt,
-            style: b2Medium(),
+            todo.createdAt ?? "",
+            style: MyScreen().textStyleLabel(context),
           )
         ],
       ),

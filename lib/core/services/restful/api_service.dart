@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fe_starter_project_templete/core/extensions/logger.dart';
 import 'package:fe_starter_project_templete/core/utils/base_url_util.dart';
 
 class ApiService {
@@ -11,7 +12,6 @@ class ApiService {
           receiveTimeout: const Duration(milliseconds: 3000),
         )) {
     _dio.interceptors.add(InterceptorsWrapper(
-
       onResponse: (response, handler) {
         // Do something with response data
         return handler.next(response); // continue
@@ -29,20 +29,23 @@ class ApiService {
             if (e.response?.statusCode == 404) {
               errorMessage = 'Resource not found.';
             } else {
-              errorMessage = 'Received invalid status code: ${e.response?.statusCode}';
+              errorMessage =
+                  'Received invalid status code: ${e.response?.statusCode}';
             }
             break;
           case DioExceptionType.cancel:
             errorMessage = 'Request to API server was cancelled.';
             break;
           case DioExceptionType.unknown:
-            errorMessage = 'Connection to API server failed due to internet connection.';
+            errorMessage =
+                'Connection to API server failed due to internet connection.';
             break;
           case DioExceptionType.badCertificate:
             errorMessage = 'Connection to API bad sertificat.';
             break;
           case DioExceptionType.connectionError:
-            errorMessage = 'Connection to API server internet connection error.';
+            errorMessage =
+                'Connection to API server internet connection error.';
             break;
         }
         return handler.next(DioException(
@@ -56,6 +59,7 @@ class ApiService {
   Future<dynamic> getData(String url) async {
     try {
       final response = await _dio.get(url);
+      "DATA => ${response.data}".logger();
       return response.data;
     } catch (e) {
       throw Exception(e);

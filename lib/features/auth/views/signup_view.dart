@@ -1,6 +1,6 @@
+import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/styles/style_color.dart';
@@ -26,7 +26,7 @@ class SignUpView extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Gap(30.h),
+              MyScreen().screenGapSize(height: 30.h),
               Text(
                 "Create Your Account",
                 style: h3Reguler(),
@@ -35,26 +35,25 @@ class SignUpView extends StatelessWidget {
                 "My Todo App",
                 style: h3Bold(),
               ),
-              const Gap(6),
-              const Gap(40),
+              MyScreen().screenGapSize(height: 46.h),
               TextFieldWidget(
                 controller: _fullNameController,
                 labelText: "Fullname",
                 hintText: "Enter your fullname",
               ),
-              const Gap(20),
+              MyScreen().screenGapSize(height: 20),
               TextFieldWidget(
                 controller: _emailController,
                 labelText: "Email",
                 hintText: "Enter your email",
               ),
-              const Gap(20),
+              MyScreen().screenGapSize(height: 20),
               TextFieldWidget(
                 controller: _passController,
                 hintText: "Enter your Password",
                 labelText: "Password",
               ),
-              const Gap(20),
+              MyScreen().screenGapSize(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -77,19 +76,19 @@ class SignUpView extends StatelessWidget {
                   )
                 ],
               ),
-              const Gap(20),
+              MyScreen().screenGapSize(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Dont't any account?",
+                    "I have any account?",
                     style: b3Medium(colorText: CustomColor.netral400),
                   ),
-                  const Gap(12),
+                  MyScreen().screenGapSize(height: 12),
                   InkWell(
-                    onTap: () => context.go(RoutePath.init),
+                    onTap: () => context.go('/'),
                     child: Text(
-                      "Sign Up",
+                      "Sign In",
                       style: b3Medium(colorText: CustomColor.primary800),
                     ),
                   ),

@@ -1,7 +1,7 @@
 import 'package:fe_starter_project_templete/core/config/injection.dart';
+import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
 import 'package:fe_starter_project_templete/core/stores/screen_util/screen_util_store.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 mixin ScreenUtilFunction {
   T screenBreakPoint<T>({required T desktop, T? tablet, T? mobile}) {

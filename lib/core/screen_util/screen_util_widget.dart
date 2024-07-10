@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
 
 mixin ScreenUtilWidget {
   SizedBox screenGapRadius({num? radius}) {

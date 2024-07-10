@@ -14,26 +14,28 @@ class AppRoutes {
   AppRoutes()
       : router = GoRouter(
           navigatorKey: GlobalKey<NavigatorState>(),
-          initialLocation: RoutePath.init,
+          debugLogDiagnostics: true,
           routes: <RouteBase>[
             GoRoute(
-              path: RoutePath.home,
-              builder: (context, state) {
-                return const HomeView();
-              },
-            ),
-            GoRoute(
-              path: RoutePath.signUp,
-              builder: (context, state) {
-                return SignUpView();
-              },
-            ),
-            GoRoute(
-              path: RoutePath.init,
-              builder: (context, state) {
-                return LoginView();
-              },
-            )
+                path: '/',
+                builder: (context, state) {
+                  return LoginView();
+                },
+                routes: [
+                  GoRoute(
+                    path: 'home',
+                    builder: (context, state) {
+                      return const HomeView();
+                    },
+                  ),
+                  GoRoute(
+                    path: 'sign_up',
+                    name: 'sign_up',
+                    builder: (context, state) {
+                      return SignUpView();
+                    },
+                  ),
+                ])
           ],
           observers: [
             MyNavigationObserver(

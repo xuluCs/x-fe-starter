@@ -7,13 +7,15 @@ part of 'login.dart';
 // **************************************************************************
 
 Login _$LoginFromJson(Map<String, dynamic> json) => Login(
-      token: json['token'] as String?,
-      data: json['data'] == null
-          ? null
-          : DataLogin.fromJson(json['data'] as Map<String, dynamic>),
+      userId: (json['userId'] as num?)?.toInt(),
+      fullName: json['fullName'] as String?,
+      jwtToken: json['jwtToken'] as String?,
+      jwtExpiryDateTime: json['jwtExpiryDateTime'] as String?,
     );
 
 Map<String, dynamic> _$LoginToJson(Login instance) => <String, dynamic>{
-      'token': instance.token,
-      'data': instance.data,
+      'userId': instance.userId,
+      'fullName': instance.fullName,
+      'jwtToken': instance.jwtToken,
+      'jwtExpiryDateTime': instance.jwtExpiryDateTime,
     };
