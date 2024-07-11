@@ -18,3 +18,5 @@ enum TableDataSource { dynamicMenu, lookUp }
 enum RequestType { restfull }
 
 enum RestfulMethod { get, post, put, download }
+
+enum Position { center, topRight, bottomRight, topLeft, bottomLeft }

@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_asset.dart';
 import 'package:fe_starter_project_templete/core/constants/constants_text.dart';
-import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:fe_starter_project_templete/features/auth/stores/auth_store.dart';
 import 'package:provider/provider.dart';
 
@@ -105,17 +104,17 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Dont't any account?",
-                    style: MyScreen().textStyleTitle(context).copyWith(
+                    style: MyScreen().textStyleBody(context).copyWith(
                           fontWeight: FontWeight.bold,
                           color: color.secondary,
                         ),
                   ),
-                  MyScreen().screenGapSize(width: 12.h),
+                  MyScreen().screenGapSize(width: 6.h),
                   InkWell(
                     onTap: () => context.go('/sign_up'),
                     child: Text(
                       "Sign Up",
-                      style: MyScreen().textStyleTitle(context).copyWith(
+                      style: MyScreen().textStyleBody(context).copyWith(
                             fontWeight: FontWeight.bold,
                             color: color.primary,
                           ),

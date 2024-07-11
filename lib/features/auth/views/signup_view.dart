@@ -1,11 +1,8 @@
 import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
+import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fe_starter_project_templete/components/widgets/text_field_widget.dart';
-import 'package:fe_starter_project_templete/core/styles/style_color.dart';
-import 'package:fe_starter_project_templete/core/styles/style_text.dart';
-import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:fe_starter_project_templete/features/auth/stores/auth_store.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +16,7 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<AuthStore>(context);
+    final color = MyScreen().colorDisplay(context);
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -29,11 +27,16 @@ class SignUpView extends StatelessWidget {
               MyScreen().screenGapSize(height: 30.h),
               Text(
                 "Create Your Account",
-                style: h3Reguler(),
+                style: MyScreen()
+                    .textStyleHeadline(context)
+                    .copyWith(fontWeight: FontWeight.w600),
               ),
               Text(
                 "My Todo App",
-                style: h3Bold(),
+                style: MyScreen().textStyleTitle(context).copyWith(
+                      color: color.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               MyScreen().screenGapSize(height: 46.h),
               TextFieldWidget(
@@ -82,14 +85,20 @@ class SignUpView extends StatelessWidget {
                 children: [
                   Text(
                     "I have any account?",
-                    style: b3Medium(colorText: CustomColor.netral400),
+                    style: MyScreen().textStyleBody(context).copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: color.secondary,
+                        ),
                   ),
-                  MyScreen().screenGapSize(height: 12),
+                  MyScreen().screenGapSize(width: 6.h),
                   InkWell(
-                    onTap: () => context.go('/'),
+                    onTap: () => context.go('/login'),
                     child: Text(
                       "Sign In",
-                      style: b3Medium(colorText: CustomColor.primary800),
+                      style: MyScreen().textStyleBody(context).copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: color.primary,
+                          ),
                     ),
                   ),
                 ],

@@ -32,7 +32,8 @@ abstract class _AuthStore with Store, NavigatorMixin {
           pop(context);
         },
       );
-      "login ${data}".logger();
+
+      pushNamed(name: 'home');
 
       login = data;
     } catch (e) {
