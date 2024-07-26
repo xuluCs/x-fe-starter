@@ -1,21 +1,18 @@
-import 'package:fe_starter_project_templete/core/models/backend_callback_data_model.dart';
 
 class BackendCallbackModel {
-  String? accessToken;
-  String? tokenExp;
-  BackendCallbackDataModel? data;
+  int? status;
+  String? message;
+  dynamic data;
 
   BackendCallbackModel({
-    this.accessToken,
-    this.tokenExp,
+    this.status,
+    this.message,
     this.data,
   });
 
   BackendCallbackModel.fromJson(Map<String, dynamic> json) {
-    accessToken = json['access_token'];
-    tokenExp = json['exp_date'];
-    if (json['data'] != null) {
-      data = BackendCallbackDataModel.fromJson(json['data']);
-    }
+    status = json['status'];
+    message = json['message'];
+    data = json['data'];
   }
 }

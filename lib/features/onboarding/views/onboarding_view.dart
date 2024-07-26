@@ -127,4 +127,10 @@ List<Map<String, dynamic>> demoData = [
     "text":
         "RewindMe memungkinkan Anda untuk tetap terhubung dengan orang-orang terkasih dan merenungkan momen-momen berharga dalam hidup Anda. Nikmati perjalanan hidup yang penuh makna dan biarkan kenangan indah selalu ada di hati Anda.",
   },
+  {
+    "illustration": "onboarding_2",
+    "title": "Buat Kenangan yang Abadi",
+    "text":
+        "Dengan RewindMe, Anda bisa menyimpan dan merayakan tonggak-tonggak penting, besar atau kecil, yang membuat hidup istimewa. Bagikan kenangan Anda, wariskan kepada generasi berikutnya, dan biarkan warisan Anda hidup dengan indah dan bermakna.",
+  },
 ];

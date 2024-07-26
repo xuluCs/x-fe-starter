@@ -12,7 +12,7 @@ class RestfulModule {
   }
 
   Future<T> send<T>(RestfulRequestInterface request) async {
-    final url = request.url;
+    final url = request.urlEnpoint;
 
     dynamic json;
 

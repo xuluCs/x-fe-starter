@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:fe_starter_project_templete/core/services/restful/restful_interface.dart';
+import 'package:fe_starter_project_templete/core/utils/base_url_util.dart';
 import 'package:flutter/foundation.dart';
 
 const _defaultConnectTimeout = Duration.millisecondsPerMinute;
@@ -13,7 +14,7 @@ class RestfulService extends RestfulInterface {
 
   RestfulService() {
     _dio
-      ..options.baseUrl = ""
+      ..options.baseUrl = BaseUrl.url
       ..options.connectTimeout =
           const Duration(milliseconds: _defaultConnectTimeout)
       ..options.receiveTimeout =

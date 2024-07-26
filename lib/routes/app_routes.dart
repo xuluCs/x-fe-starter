@@ -1,4 +1,5 @@
 import 'package:fe_starter_project_templete/core/services/local_preference_service.dart';
+import 'package:fe_starter_project_templete/features/home/views/user_detail_view.dart';
 import 'package:fe_starter_project_templete/features/onboarding/views/onboarding_view.dart';
 import 'package:fe_starter_project_templete/features/onboarding/views/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -46,16 +47,27 @@ class AppRoutes {
               },
             ),
             GoRoute(
+              path: '/sign_up',
+              name: 'sign_up',
+              builder: (context, state) {
+                return SignUpView();
+              },
+            ),
+            GoRoute(
               path: '/home',
+              name: 'home',
               builder: (context, state) {
                 return const HomeView();
               },
             ),
             GoRoute(
-              path: '/sign_up',
-              name: 'sign_up',
+              path: '/detail_user',
+              name: 'detail_user',
               builder: (context, state) {
-                return SignUpView();
+                final data = state.extra as Map<String, dynamic>?;
+                return DetailUserView(
+                  idUser: data?['idUser'],
+                );
               },
             ),
           ],

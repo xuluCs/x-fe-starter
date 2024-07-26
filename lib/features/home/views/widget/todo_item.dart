@@ -1,11 +1,11 @@
 import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
+import 'package:fe_starter_project_templete/features/home/models/user/user.dart';
 import 'package:flutter/material.dart';
-import 'package:fe_starter_project_templete/features/home/models/todo.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({super.key, required this.todo});
 
-  final Todo todo;
+  final User todo;
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +21,10 @@ class TodoItem extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  todo.category == "daily"
-                      ? Icons.check_circle_outline_rounded
-                      : todo.category == "task"
-                          ? Icons.file_copy
-                          : todo.category == "birthday"
-                              ? Icons.cake_rounded
-                              : Icons.school_rounded,
-                  color: Colors.blue.shade600,
-                  size: 27,
-                ),
                 MyScreen().screenGapSize(width: 12),
                 Flexible(
                   child: Text(
-                    todo.title ?? "",
+                    todo.fullName ?? "",
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                     style: MyScreen().textStyleTitle(context),
@@ -46,7 +35,7 @@ class TodoItem extends StatelessWidget {
           ),
           MyScreen().screenGapSize(width: 12),
           Text(
-            todo.createdAt ?? "",
+            todo.address ?? "",
             style: MyScreen().textStyleLabel(context),
           )
         ],

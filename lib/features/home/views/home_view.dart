@@ -1,6 +1,5 @@
 import 'package:fe_starter_project_templete/core/screen_util/screen_util.dart';
 import 'package:fe_starter_project_templete/core/screen_util/screen_util_extension.dart';
-import 'package:fe_starter_project_templete/core/utils/route_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -23,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    store.fetchPosts();
+    store.getUsers();
   }
 
   @override
@@ -32,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         title: Text(
-          "My Todo",
+          "My Templete Starter",
           style: MyScreen().textStyleTitle(context).copyWith(
                 fontWeight: FontWeight.w600,
               ),
@@ -69,7 +68,7 @@ class _HomeViewState extends State<HomeView> {
                   Text(store.errorMessage),
                   TextButton(
                       onPressed: () {
-                        store.fetchPosts();
+                        store.getUsers();
                       },
                       child: Text(
                         "try again",
@@ -91,7 +90,7 @@ class _HomeViewState extends State<HomeView> {
                       text: "Remaining task ",
                       children: [
                         TextSpan(
-                          text: '(${store.todos.length})',
+                          text: '(${store.users.length})',
                         ),
                       ],
                       style: MyScreen()
@@ -107,7 +106,7 @@ class _HomeViewState extends State<HomeView> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: store.todos.length,
+                  itemCount: store.users.length,
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 12,
                   ),
@@ -115,14 +114,10 @@ class _HomeViewState extends State<HomeView> {
                     return InkWell(
                       borderRadius: BorderRadius.circular(16),
                       onTap: () async {
-                        // final result = await context.push('/detail_todo',
-                        //     extra: state.todos[index]);
-                        // if (result == true) {
-                        //   // ignore: use_build_context_synchronously
-                        //   context.read<TodoBloc>().add(OnGetTodoList());
-                        // }
+                        context.push('/detail_user',
+                            extra: {'idUser': store.users[index].userId});
                       },
-                      child: TodoItem(todo: store.todos[index]),
+                      child: TodoItem(todo: store.users[index]),
                     );
                   },
                 )

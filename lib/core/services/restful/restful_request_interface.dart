@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:fe_starter_project_templete/core/utils/enum_key.dart';
 
 abstract class RestfulRequestInterface {
-  String url = '';
+  String urlEnpoint = '';
   String downloadPath = '';
   dynamic get method;
   late RequestType _requestType;

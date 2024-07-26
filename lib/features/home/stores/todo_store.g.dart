@@ -9,18 +9,33 @@ part of 'todo_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$TodoStore on _TodoStore, Store {
-  late final _$todosAtom = Atom(name: '_TodoStore.todos', context: context);
+  late final _$usersAtom = Atom(name: '_TodoStore.users', context: context);
 
   @override
-  ObservableList<Todo> get todos {
-    _$todosAtom.reportRead();
-    return super.todos;
+  ObservableList<User> get users {
+    _$usersAtom.reportRead();
+    return super.users;
   }
 
   @override
-  set todos(ObservableList<Todo> value) {
-    _$todosAtom.reportWrite(value, super.todos, () {
-      super.todos = value;
+  set users(ObservableList<User> value) {
+    _$usersAtom.reportWrite(value, super.users, () {
+      super.users = value;
+    });
+  }
+
+  late final _$userAtom = Atom(name: '_TodoStore.user', context: context);
+
+  @override
+  User get user {
+    _$userAtom.reportRead();
+    return super.user;
+  }
+
+  @override
+  set user(User value) {
+    _$userAtom.reportWrite(value, super.user, () {
+      super.user = value;
     });
   }
 
@@ -56,18 +71,43 @@ mixin _$TodoStore on _TodoStore, Store {
     });
   }
 
-  late final _$fetchPostsAsyncAction =
-      AsyncAction('_TodoStore.fetchPosts', context: context);
+  late final _$getUsersAsyncAction =
+      AsyncAction('_TodoStore.getUsers', context: context);
 
   @override
-  Future<void> fetchPosts() {
-    return _$fetchPostsAsyncAction.run(() => super.fetchPosts());
+  Future<void> getUsers() {
+    return _$getUsersAsyncAction.run(() => super.getUsers());
+  }
+
+  late final _$getUserByIdAsyncAction =
+      AsyncAction('_TodoStore.getUserById', context: context);
+
+  @override
+  Future<void> getUserById(String id) {
+    return _$getUserByIdAsyncAction.run(() => super.getUserById(id));
+  }
+
+  late final _$deleteUserAsyncAction =
+      AsyncAction('_TodoStore.deleteUser', context: context);
+
+  @override
+  Future<void> deleteUser(String id) {
+    return _$deleteUserAsyncAction.run(() => super.deleteUser(id));
+  }
+
+  late final _$editUserAsyncAction =
+      AsyncAction('_TodoStore.editUser', context: context);
+
+  @override
+  Future<void> editUser(UserRequest user, String idUser) {
+    return _$editUserAsyncAction.run(() => super.editUser(user, idUser));
   }
 
   @override
   String toString() {
     return '''
-todos: ${todos},
+users: ${users},
+user: ${user},
 isLoading: ${isLoading},
 errorMessage: ${errorMessage}
     ''';
